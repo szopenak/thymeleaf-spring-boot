@@ -1,7 +1,19 @@
+body {
+    background-image: url("../img/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
 h1{
     color:#0000FF;
 }
 
 h2{
     color:#FF0000;
+}
+
+content{
+    background: black;
+    opacity: 0.5;
+    width: 80%;
+    height: 80%;
 }
