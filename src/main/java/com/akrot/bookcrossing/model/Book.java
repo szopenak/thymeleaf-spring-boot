@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,6 +25,8 @@ public class Book
     private String title;
     private int releaseYear;
     boolean available;
+    @Column(precision=18, scale=8)
     BigDecimal longitude;
+    @Column(precision=18, scale=8)
     BigDecimal latitude;
 }

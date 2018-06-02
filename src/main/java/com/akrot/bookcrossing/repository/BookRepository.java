@@ -12,4 +12,7 @@ public interface BookRepository extends JpaRepository<Book, Long>
 {
     @Query("SELECT book FROM Book book WHERE book.available = true")
     List<Book> getAllFree();
+
+    List<Book> getByAuthorAndAvailable(String author, boolean available);
+    List<Book> getByTitleAndAvailable(String title, boolean available);
 }

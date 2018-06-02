@@ -23,7 +23,10 @@ public class BookController
     BookRepository bookRepository;
 
     @GetMapping("/books")
-    public ModelAndView welcome(@RequestParam(required = false) String take) {
+    public ModelAndView welcome(
+            @RequestParam(required = false) String take,
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String author) {
         if (take != null && take.matches("[0-9]*")){
             Long id = Long.valueOf(take);
             Optional<Book> toGet = bookRepository.findById(id);
@@ -32,6 +35,12 @@ public class BookController
                 book.setAvailable(false);
                 bookRepository.save(book);
             }
+        }
+        if (title != null) {
+            return new ModelAndView("books").addObject("books", bookRepository.getByTitleAndAvailable(title, true));
+        }
+        if (author != null) {
+            return new ModelAndView("books").addObject("books", bookRepository.getByAuthorAndAvailable(author, true));
         }
         return new ModelAndView("books").addObject("books", bookRepository.getAllFree());
     }
