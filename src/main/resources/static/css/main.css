@@ -3,17 +3,16 @@ body {
     background-repeat: no-repeat;
     background-size: auto;
 }
-h1{
-    color:#0000FF;
+#head-msg{
+    color: cornsilk;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 5vw;
 }
 
-h2{
-    color:#FF0000;
-}
-
-content{
-    background: black;
-    opacity: 0.5;
-    width: 80%;
-    height: 80%;
+.opaque-container{
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: auto;
+    margin: 30px auto;
+    padding: 30px;
 }
