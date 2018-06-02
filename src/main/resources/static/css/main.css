@@ -16,3 +16,16 @@ body {
     margin: 30px auto;
     padding: 30px;
 }
+
+.thumbnail {
+    padding: 10px;
+}
+.opaque-container img{
+    width: 100%;
+}
+.form-group label {
+    color: white;
+}
+.form-group p {
+    color: red;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Thymeleaf Hello World Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css" />
+
+</head>
+<body th:background="@{/img/background.jpeg}">
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/}">Bookcrossing</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/}">Home</a></li>
+                <li class="active"><a th:href="@{/share}">Share a book</a></li>
+                <li><a th:href="@{/books}">Find a book</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="opaque-container">
+        <h1 id="head-msg">Share a book</h1>
+    </div>
+    <div class="opaque-container">
+
+        <form th:action="@{/share}" th:object="${book}" method="post">
+            <div class="form-group">
+                <label th:for="*{author}">Author of the book</label>
+                <input type="text" class="form-control" th:field="*{author}" placeholder = "e.x. Charles Dickens"/>
+                <p th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></p>
+            </div>
+            <div class="form-group">
+                <label th:for="*{title}">Title of the book</label>
+                <input type="text" class="form-control" th:field="*{title}" placeholder = "e.x. Lord of the Rings"/>
+                <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+            </div>
+            <div class="form-group">
+                <label th:for="*{releaseYear}">Release year</label>
+                <input type="text" class="form-control" th:field="*{releaseYear}" placeholder = "e.x. 1999"/>
+                <p th:if="${#fields.hasErrors('releaseYear')}" th:errors="*{releaseYear}"></p>
+            </div>
+            <div class="form-group">
+                <label th:for="*{longitude}">Longitude</label>
+                <input type="text" class="form-control" th:field="*{longitude}" placeholder = "e.x. 23.232"/>
+                <p th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}"></p>
+            </div>
+            <div class="form-group">
+                <label th:for="*{latitude}">Latitude</label>
+                <input type="text" class="form-control" th:field="*{latitude}" placeholder = "e.x. 53.221"/>
+                <p th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}"></p>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2" style="margin: 0 45%">Add book</button>
+
+            <!--<td th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Title error message</td>-->
+
+            <!--<p>Data zdarzenia: <input type="text" id="datepicker" th:field="*{date}" /></p>-->
+            <!--<p>Godzina zdarzenia: <input type= "text" th:field="*{hour}" /></p>-->
+
+
+            <!--<p>Miejsce zdarzenia: <input type="text" th:field="*{placeOfOccurence}" /></p>-->
+            <!--<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>-->
+
+        </form>
+    </div>
+</div>
+<!-- /.container -->
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

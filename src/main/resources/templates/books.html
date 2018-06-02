@@ -32,7 +32,22 @@
     <div class="opaque-container">
         <h1 id="head-msg">Browse books</h1>
     </div>
-    <div class="opaque-container">awdawd</div>
+    <div class="opaque-container">
+        <div class="row">
+        <th:block th:each="book : ${books}">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img class="card-img-top" th:src="@{/img/book.png}" alt="Card image cap">
+                        <div class="caption">
+                            <h3 th:text="${book.title}"></h3>
+                            <p th:text="${book.author}"></p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+        </th:block>
+        </div>
+    </div>
 </div>
 <!-- /.container -->
 
@@ -40,4 +55,5 @@
         src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
+<p>https://www.flaticon.com/authors/zlatko-najdenovski</p>
 </html>
